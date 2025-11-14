@@ -20,7 +20,7 @@ body {
     text-align: center;
     margin-top: 100px;
     gap: 16px;
-    background-image: url('../images/TV1NQ_rZeMY.jpg');
+    background-image: url('/images/TV1NQ_rZeMY.jpg');
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -300,4 +300,5 @@ h1 {
     #menu{
         margin-top: 24px;
     }
+
 }
