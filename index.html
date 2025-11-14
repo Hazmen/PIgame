@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/script.js" defer></script>
+    <script src="js/warn.js"></script>
+    <title>PIgame</title>
+</head>
+<body>
+    <div id="menu">
+        <h1 style="margin-bottom: -20px;">Physics simulation!</h1>
+        <p style="font-weight: 400; font-size: 28px; margin-bottom: 5px;">Calculate the digits of PI with a physics simulation!</p>
+        <p style="font-size:24px">[!Choose the mass of the Big Cube!]</p>
+        <input class="inp" type='number' value="" min="1" max="1000000000000" style="width: 200px; height: 24px; font-size: 24px" placeholder="kg" id="massInput">
+        <p style="font-size: 0.8em;">*Please dont put the number over 1 trillion!</p>
+        <button id="start">Start simulation</button>
+        <button id="about">About</button>
+
+        
+    </div>
+    <div id="simulation" style="display: none; text-align: center; margin-top: 100px;">
+        <div id="counter" style="font-size: 20px;">Collisions: 0</div>
+        <p style="color: yellow; font-size: 20px; font-family:'Times New Roman', Times, serif;">π: 3.141592653589793...</p>
+        <button id="quit" style="position: absolute; top: 10px; right: 10px;">Quit to Menu</button>
+        <canvas id="canvas" width="800" height="400"></canvas>
+
+    </div>
+    <div id="aboutuh" style="display: none;">
+        <h2>What is this?</h2>
+        <p>I made this because I love physics (though I'm not very good at it). I came across this <a href="https://www.youtube.com/watch?v=HEfHFsfGXjs&ab_channel=3Blue1Brown">video</a> and got inspired to recreate it using my coding skills. I started with Pygame, but it didn’t work well, so I switched to HTML and JS.</p>
+        <p>This is like a sandbox: you can enter the mass of the blocks and see how many times the big and small blocks collide.</p>
+        <p>The most interesting part is when the big block’s mass is 1, 10, 100, 1000, etc. The number of collisions starts revealing the digits of π, which you can see in the yellow text.</p>
+        <p>Not sure what else to say, so...</p>
+        <h3>Made by Hazmen</h3>
+        <img src="/images/idk.webp" alt="image" class="idkimg">
+        <button id="quit" style="position: absolute; top: 10px; right: 10px;" onclick="document.getElementById('aboutuh').style.display='none'; document.getElementById('menu').style.display='flex';">Back to Menu</button>
+    </div>
+
+    <div id="aboutuh-mob" style="display: none;">
+        <div class="header">
+            <div class="space"></div>
+            <h2>What is this?</h2>
+            <button class="quit-mob">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </div>
+        
+        <p>I made this because I love physics (though I'm not very good at it). I came across this <a href="https://www.youtube.com/watch?v=HEfHFsfGXjs&ab_channel=3Blue1Brown">video</a> and got inspired to recreate it using my coding skills. I started with Pygame, but it didn’t work well, so I switched to HTML and JS.</p>
+        <p>This is like a sandbox: you can enter the mass of the blocks and see how many times the big and small blocks collide.</p>
+        <p>The most interesting part is when the big block’s mass is 1, 10, 100, 1000, etc. The number of collisions starts revealing the digits of π, which you can see in the yellow text.</p>
+        <p>Not sure what else to say, so...</p>
+        <h3>Made by Hazmen</h3>
+        <img src="/images/idk.webp" alt="image" class="idkimg-mob">
+        <!-- <button id="quit" style="position: absolute; top: 10px; right: 10px;" onclick="document.getElementById('aboutuh').style.display='none'; document.getElementById('menu').style.display='flex';">Back to Menu</button> -->
+    </div>
+
+
+    <div id="toastContainer" class="toast-container"></div>
+
+</body>
+</html>

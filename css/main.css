@@ -1,0 +1,303 @@
+/* ===========================
+   БАЗОВЫЕ СТИЛИ
+=========================== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    overflow-x: hidden; /* запрещаем горизонтальный скролл */
+}
+
+/* ===========================
+   МЕНЮ
+=========================== */
+#menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 100px;
+    gap: 16px;
+    background-image: url('../images/TV1NQ_rZeMY.jpg');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+/* Заголовок */
+h1 {
+    font-size: 120px;
+    margin: 10px 0;
+    line-height: 1;
+}
+
+/* Инпуты */
+.inp {
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    border-radius: 60px;
+    outline: none;
+    padding: 8px 12px;
+    font-size: 18px;
+}
+
+/* Кнопки старт/о программе */
+#start, #about, #quit {
+    font-size: 22px;
+    padding: 6px 14px;
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+#start:hover, #about:hover, #quit:hover {
+    transform: scale(1.15);
+}
+
+/* ===========================
+   TOAST
+=========================== */
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+}
+
+.toast {
+    position: relative;
+    background: rgba(0,0,0,0.95);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 16px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    animation: fadeIn 0.25s linear forwards;
+}
+
+.toast .close-btn {
+    background: rgb(5,5,5);
+    border: none;
+    color: rgb(255,253,253);
+    font-size: 16px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+.toast .border-anim {
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    border: 2px solid rgba(255,255,255,0);
+    pointer-events: none;
+    box-sizing: border-box;
+    animation: borderFade 2s linear forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to   { opacity: 0; transform: translateY(10px); }
+}
+
+@keyframes borderFade {
+    0%   { border-color: rgba(255,255,255,0); }
+    100% { border-color: rgba(249,0,0,0.7); }
+}
+
+/* ===========================
+   ABOUT MODAL
+=========================== */
+#aboutuh {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85vw;
+    max-width: 900px;
+    background: rgba(0,0,0,0.9);
+    color: white;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.5;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 20px;
+    padding: 25px 20px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.25);
+    z-index: 1000;
+    overflow: hidden;
+    max-height: 90vh;
+}
+
+/* Заголовки */
+#aboutuh h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+#aboutuh h3 {
+    font-size: 1.4rem;
+    margin: 15px 0;
+}
+
+/* Параграфы */
+#aboutuh p {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+/* Картинка */
+#aboutuh img {
+    width: 90%;
+    max-height: 15em;
+    object-fit: contain;
+    border-radius: 50px;
+    margin-top: 15px;
+}
+
+/* Кнопка "Back to Menu" */
+#aboutuh button {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 18px;
+    padding: 6px 12px;
+    border-radius: 50px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* #aboutuh button:hover {
+    background-color: rgba(255,255,255,0.25);
+} */
+
+/* ===========================
+   АДАПТИВНЫЕ СТИЛИ
+=========================== */
+@media (max-width: 768px) {
+    h1 { font-size: 72px; }
+    .inp { font-size: 16px; padding: 5px 10px; }
+    #start, #about, #quit { font-size: 18px; padding: 5px 10px; }
+    #aboutuh { width: 90vw; padding: 20px 15px; }
+    #aboutuh h2 { font-size: 1.5rem; }
+    #aboutuh h3 { font-size: 1.2rem; }
+    #aboutuh p { font-size: 1rem; }
+    #aboutuh img { width: 100%; max-height: 14em; }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 48px; }
+    .inp { font-size: 14px; padding: 4px 8px; }
+    #start, #about, #quit { font-size: 16px; padding: 4px 8px; }
+    #aboutuh h2 { font-size: 1.3rem; }
+    #aboutuh h3 { font-size: 1.1rem; }
+    #aboutuh p { font-size: 0.95rem; }
+    #aboutuh img { width: 100%; max-height: 12em; }
+}
+
+/* *{
+    transform: scale(1.05);
+} */
+
+/* ===========================
+   ABOUT MODAL-MOBILE
+=========================== */
+#aboutuh-mob {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85vw;
+    max-width: 900px;
+    background: rgba(0,0,0,0.9);
+    color: white;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.5;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 20px;
+    padding: 25px 20px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.25);
+    z-index: 1000;
+    overflow: auto;
+    max-height: 90vh;
+}
+
+/* Заголовки */
+#aboutuh-mob h2 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+#aboutuh-mob h3 {
+    font-size: 1.4rem;
+    margin: 15px 0;
+}
+
+/* Параграфы */
+#aboutuh-mob p {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+/* Картинка */
+#aboutuh-mob img {
+    width: 90%;
+    max-height: 15em;
+    object-fit: contain;
+    border-radius: 50px;
+    margin-top: 15px;
+}
+
+#aboutuh-mob button {
+    font-size: 18px;
+    padding: 6px 12px;
+    border-radius: 50px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+    cursor: pointer;
+}
+
+.space{
+    width: 15px;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@media (max-width: 860px){
+    #menu{
+        margin-top: 24px;
+    }
+}
